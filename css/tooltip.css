@@ -8,8 +8,7 @@ body {
     display: none;
 
     /* 大きさ(適当です) */
-    width: 200;
-    height: 300;
+    width: 200px;
 
     /* その他位置調整 */
     position: absolute;
