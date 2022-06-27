@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>ツールチップに画像を表示</title>
+
+    <!-- この行は他でjqueryを読み込んでいれば必要ありません(おそらくもうあります) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- この2行で外部ファイルを読み込みます -->
+    <link rel="stylesheet" type="text/css" href="css/tooltip.css" />
+    <script type="text/javascript" src="js/tooltip.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <h1>ツールチップのデモです。</h1>
+        <p>
+            <!-- ここから -->
+            <span class="card">
+                カード名1
+                <!-- imgタグはspanタグの中に置く想定です。 -->
+                <img class="tip" src="images/s01.png" />
+            </span>
+            <!-- ここまで -->
+
+            <span class="card">
+                カード名2
+                <img class="tip" src="images/s02.png" width="200" height="300" />
+            </span>
+            <span class="card">
+                カード名3
+                <img class="tip" src="images/s03.png" width="200" height="300" />
+            </span>
+            <span class="card">
+                カード名4
+                <img class="tip" src="images/s04.png" width="200" height="300" />
+            </span>
+        </p>
+    </div>
+</body>
+
+</html>
