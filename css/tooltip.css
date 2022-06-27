@@ -1,0 +1,17 @@
+body {
+    /* 画面外に移動した時スクロールバーを出さない */
+    overflow: hidden;
+}
+
+.tip {
+    /* ツールチップをデフォルトで非表示 */
+    display: none;
+
+    /* 大きさ(適当です) */
+    width: 200;
+    height: 300;
+
+    /* その他位置調整 */
+    position: absolute;
+    z-index: 0;
+}
