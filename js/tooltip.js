@@ -16,7 +16,7 @@ $(function () {
         //マウスムーブイベント
         .mousemove(
             function (e) {
-                var tip = $(this).children(".tip")
+                var tip = $(this).next(".tip")
 
                 var tipLeft = e.pageX;
                 var tipTop = e.pageY;
