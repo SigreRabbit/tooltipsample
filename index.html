@@ -9,44 +9,53 @@
     <!-- この行は他でjqueryを読み込んでいれば必要ありません(おそらくもうされていると思います) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <!-- この2行で外部ファイルを読み込みます -->
+    <!-- javascript -->
     <script>
         $(function () {
             $(".card")
-                //マウスが画像の上を移動すると画像が消えない不具合があり、
-                //原因は分かっているので修正予定です
-
-                //ホバーイベント
-                .hover(
-                    //マウスオーバーで表示
-                    function () {
+                //マウスが乗ったら表示
+                .mouseenter(
+                    function (e) {
                         var tip = $(this).next(".tip");
-                        
-                        var tipLeft = tip.pageX;
-                        var tipTop = tip.pageY;
+
+                        //card文字列の左上のXY座標
+                        var spanLeft = $(this).offset().left;
+                        var spanTop = $(this).offset().top;
+
+                        //tip画像の左上のXY座標(card文字列のすぐ右)
+                        var tipLeft = spanLeft + $(this).width();
+                        var tipTop = spanTop;
+
+                        //tip画像の幅と高さ
                         var tipWidth = tip.width();
                         var tipHeight = tip.height();
-                        var tipVisX = $(window).width() - (tipLeft + tipWidth);
-                        var tipVisY = $(window).height() - (tipTop + tipHeight);
-                        if (tipVisX < 0) { //画面幅を超えた場合はX座標を調節
-                            tipLeft = $(this).pageX - tipWidth;
+
+                        //画像の表示が画面幅を超える場合は、X座標を文字列の左に
+                        if ($(window).width() < tipLeft + tipWidth) {
+                            tipLeft = spanLeft - tipWidth;
                         }
-                        if (tipVisY < 0) { //画面高さを超えた場合はY座標を調節
-                            tipTop = $(this).pageY - tipHeight;
-                        }                        
-                        
+                        //画像の表示が画面高さを超える場合は、Y座標を文字列の上に
+                        if ($(window).height() < tipTop + tipHeight) {
+                            tipTop = spanTop + $(this).height() - tipHeight;
+                        }
+
+                        //表示位置を調整
                         tip.css({ left: tipLeft, top: tipTop });
-                        
-                        tip.show(); 
-                    }, 
-                    //マウスが外れたら非表示
-                    function () {
-                        var tip = $(this).next(".tip");
-                        tip.hide(); 
+                        //表示
+                        tip.show();
                     }
                 )
+                //マウスが外れたら非表示
+                .mouseleave(
+                    function () {
+                        var tip = $(this).next(".tip");
+                        tip.hide();
+                    }
+                );
         });
     </script>
+
+    <!-- css -->
     <style>
         .tip {
             /* ツールチップをデフォルトで非表示 */
@@ -71,9 +80,8 @@
             <span class="card">カード名1</span>
             <img class="tip" src="images/s01.png" />
             <!-- ここまで -->
-
             <!-- imgタグはspanタグのすぐ後ろに置く想定です。 -->
-            
+
             と
             <strong>
                 <span class="card">カード名2</span>
