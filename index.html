@@ -21,11 +21,11 @@
                     function () {
                         var tip = $(this).children(".tip");
 
-                        var tipLeft = e.pageX;
-                        var tipTop = e.pageY;
+                        var tipLeft = tip.pageX;
+                        var tipTop = tip.pageY;
 
-                        var mouseX = e.clientX;
-                        var mouseY = e.clientY;
+                        var mouseX = tip.clientX;
+                        var mouseY = tip.clientY;
                         var tipWidth = tip.width();
                         var tipHeight = tip.height();
                         var tipVisX = $(window).width() - (mouseX + tipWidth);
