@@ -19,11 +19,11 @@
                 //ホバーイベント
                 .hover(
                     function () {
-                        var tip = $(this).children(".tip");
+                        var tip = $(this).next(".tip");
                         tip.show(); //マウスオーバーで表示
                     }, 
                     function () {
-                        var tip = $(this).children(".tip");
+                        var tip = $(this).next(".tip");
                         tip.hide(); //マウスオーバーで表示
                     }
                 )
@@ -73,21 +73,16 @@
         <h1>ツールチップのデモです。</h1>
         <p>
             <!-- カード1枚につき、ここから -->
-            
-            <span class="card">
-                カード名1
-                <img class="tip" src="images/s01.png" />
-            </span>
-
+            <span class="card">カード名1</span>
+            <img class="tip" src="images/s01.png" />
             <!-- ここまで -->
-            <!-- imgタグはspanタグの中に置く想定です。 -->
+
+            <!-- imgタグはspanタグのすぐ後ろに置く想定です。 -->
             
             と
             <strong>
-                <span class="card">
-                    カード名2
-                    <img class="tip" src="images/s02.png" />
-                </span>
+                <span class="card">カード名2</span>
+                <img class="tip" src="images/s02.png" />
             </strong>
             <br />
             <br />
@@ -96,20 +91,16 @@
             <br />
             <br />
             -------------------------------------------------------
-            <span class="card">
-                カード名3
-                <img class="tip" src="images/s03.png" />
-            </span>
+            <span class="card">カード名3</span>
+            <img class="tip" src="images/s03.png" />
             <br />
             <br />
             <br />
             <br />
             <br />
             <br />
-            <span class="card">
-                カード名4
-                <img class="tip" src="images/s04.png" />
-            </span>
+            <span class="card">カード名4</span>
+            <img class="tip" src="images/s04.png" />
         </p>
     </div>
 </body>
