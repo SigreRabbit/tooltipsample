@@ -24,6 +24,17 @@
                         
                         var tipLeft = tip.pageX;
                         var tipTop = tip.pageY;
+                        var tipWidth = tip.width();
+                        var tipHeight = tip.height();
+                        var tipVisX = $(window).width() - (tipLeft + tipWidth);
+                        var tipVisY = $(window).height() - (tipTop + tipHeight);
+                        if (tipVisX < 0) { //画面幅を超えた場合はX座標を調節
+                            tipLeft = $(this).pageX - tipWidth;
+                        }
+                        if (tipVisY < 0) { //画面高さを超えた場合はY座標を調節
+                            tipTop = $(this).pageY - tipHeight;
+                        }                        
+                        
                         tip.css({ left: tipLeft, top: tipTop });
                         
                         tip.show(); 
