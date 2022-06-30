@@ -6,19 +6,8 @@ $(function () {
         //ホバーイベント
         .hover(
             function () {
-                var tip = $(this).children(".tip")
-                tip.show(); //マウスオーバーで表示
-            }, 
-            function () {
-                var tip = $(this).children(".tip")
-                tip.hide(); //マウスオーバーで表示
-            }
-        )
-        //マウスムーブイベント
-        .mousemove(
-            function (e) {
-                var tip = $(this).children(".tip")
-
+                var tip = $(this).children(".tip");
+                
                 var tipLeft = e.pageX;
                 var tipTop = e.pageY;
 
@@ -36,6 +25,11 @@ $(function () {
                 }
 
                 tip.css({ left: tipLeft, top: tipTop });
+                tip.show(); //マウスオーバーで表示
+            }, 
+            function () {
+                var tip = $(this).children(".tip");
+                tip.hide(); //マウスオーバーで表示
             }
         );
 });
