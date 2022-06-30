@@ -6,11 +6,11 @@ $(function () {
         //ホバーイベント
         .hover(
             function () {
-                var tip = $(this).next(".tip")
+                var tip = $(this).children(".tip")
                 tip.show(); //マウスオーバーで表示
             }, 
             function () {
-                var tip = $(this).next(".tip")
+                var tip = $(this).children(".tip")
                 tip.hide(); //マウスオーバーで表示
             }
         )
